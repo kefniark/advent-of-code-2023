@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"regexp"
 	"strconv"
 	"strings"
 )
@@ -73,30 +72,6 @@ func findMaxColors(filename string) [][]int {
 				lineMax[color] = max(lineMax[color], num)
 			}
 		}
-		colorMaximums = append(colorMaximums, lineMax)
-	}
-
-	return colorMaximums
-}
-
-/**
- * Exactly same code than above
- * Version 2 : tried to get shorter and use regexp
- */
-func findMaxColors2(filename string) [][]int {
-	bytesRead, _ := os.ReadFile(filename)
-	re := regexp.MustCompile(`(\d+) (\w+)`)
-
-	colorMaximums := [][]int{}
-	for _, s := range strings.Split(strings.TrimSpace(string(bytesRead)), "\n") {
-		lineMax := []int{0, 0, 0}
-		for _, val := range re.FindAllStringSubmatch(s, -1) {
-			num, _ := strconv.Atoi(val[1])
-			color := parseColor(val[2])
-
-			lineMax[color] = max(lineMax[color], num)
-		}
-
 		colorMaximums = append(colorMaximums, lineMax)
 	}
 
