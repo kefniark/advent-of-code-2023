@@ -1,8 +1,8 @@
 package main
 
 import (
+	_ "embed"
 	"fmt"
-	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -13,13 +13,19 @@ import (
  * url: https://adventofcode.com/2023/day/2
  *
  * Version 2: Try to improve a bit my code
+ * - use embed to read the input file
+ * - use regexp to extract values
+ * - use map resolve colors <> int
  */
+
+//go:embed input.txt
+var input string
 
 func main() {
 	sum := 0
 	sum2 := 0
 
-	lines := findMaxColors("input.txt")
+	lines := findMaxColors()
 	for idx, line := range lines {
 		// Part 1
 		max := []int{12, 14, 13} // Red, Blue, Green
@@ -36,13 +42,12 @@ func main() {
 	fmt.Println("Part 2:", sum2)
 }
 
-func findMaxColors(filename string) [][]int {
-	colors := map[string]int{"red": 0, "blue": 1, "green": 2}
-	bytesRead, _ := os.ReadFile(filename)
+func findMaxColors() [][]int {
 	re := regexp.MustCompile(`(\d+) (\w+)`)
+	colors := map[string]int{"red": 0, "blue": 1, "green": 2}
 
 	colorMaximums := [][]int{}
-	for _, s := range strings.Split(strings.TrimSpace(string(bytesRead)), "\n") {
+	for _, s := range strings.Split(strings.TrimSpace(input), "\n") {
 		lineMax := []int{0, 0, 0}
 		for _, val := range re.FindAllStringSubmatch(s, -1) {
 			num, _ := strconv.Atoi(val[1])
@@ -55,13 +60,4 @@ func findMaxColors(filename string) [][]int {
 	}
 
 	return colorMaximums
-}
-
-// Hum I may need to update my local go version, I thought it was already in the stdlib
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }

@@ -90,12 +90,3 @@ func parseColor(color string) int {
 		return -1
 	}
 }
-
-// Hum I may need to update my local go version, I thought it was already in the stdlib
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
-}
