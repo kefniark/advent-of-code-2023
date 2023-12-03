@@ -10,7 +10,7 @@ I use this event as an opportunity to write some **[Golang](https://go.dev/)**, 
 
 * [Day 1 : Calibration](./day1/main.go)
 * [Day 2 : Cube Conundrum](./day2/main.go) ([v2](./day2/main_v2.go))
-* Day 3 : Soon
+* Day 3 : Gear Ratios - [Part 1](./day3/main.go) | [Part 2](./day3/main_part2.go)
 
 ## Run
 
