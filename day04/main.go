@@ -38,23 +38,24 @@ func main() {
 }
 
 func parseLine(s string) ([]int, []int) {
-	re := regexp.MustCompile(`\d+`)
 	startAt := strings.Index(strings.TrimSpace(s), ":")
 	sets := strings.Split(s[startAt+1:], "|")
 
-	win := []int{}
-	got := []int{}
-	for _, val := range re.FindAllStringSubmatch(sets[0], -1) {
-		num, _ := strconv.Atoi(val[0])
-		win = append(win, num)
-	}
-
-	for _, val := range re.FindAllStringSubmatch(sets[1], -1) {
-		num, _ := strconv.Atoi(val[0])
-		got = append(got, num)
-	}
+	win := parseNumbers(sets[0])
+	got := parseNumbers(sets[1])
 
 	return win, got
+}
+
+func parseNumbers(s string) []int {
+	re := regexp.MustCompile(`\d+`)
+	numbers := []int{}
+	for _, val := range re.FindAllStringSubmatch(s, -1) {
+		num, _ := strconv.Atoi(val[0])
+		numbers = append(numbers, num)
+	}
+
+	return numbers
 }
 
 func countIntersection(set1 []int, set2 []int) int {
