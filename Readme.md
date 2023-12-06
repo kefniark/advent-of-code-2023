@@ -13,6 +13,7 @@ I use this event as an opportunity to write some **[Golang](https://go.dev/)**, 
 * Day 3 : Gear Ratios - [Part 1](./day03/main.go) | [Part 2](./day03/main_part2.go)
 * Day 4 : Scratchcards - [Part 1](./day04/main.go) | [Part 2](./day04/main_part2.go)
 * Day 5 : If You Give A Seed A Fertilizer - [Part 1](./day05/main.go) | [Part 2](./day05/main_part2.go)
+* Day 6 : Wait For It - [Part 1](./day06/main.go) | [Part 2](./day06/main_part2.go)
 
 ## Run
 
