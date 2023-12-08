@@ -77,7 +77,7 @@ func parseNodes() ([]string, map[string]*Node) {
 	return cmds, mapNodes
 }
 
-// find Least Common Multiple (lcm) = (a * b / GCD(a, b)) and repeat for rest
+// find Least Common Multiple "lcm(a,b) = a * b / gcd(a, b)" and repeat for extra numbers
 func lcm(a, b int, rest ...int) int {
 	result := a * b / gcd(a, b)
 
@@ -88,7 +88,7 @@ func lcm(a, b int, rest ...int) int {
 	return result
 }
 
-// find greatest common divisor (gcd)
+// find Greatest Common Divisor (gcd) just repeat modulo until zero
 func gcd(a, b int) int {
 	for b != 0 {
 		t := b
