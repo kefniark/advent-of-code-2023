@@ -19,6 +19,7 @@ I use this event as an opportunity to write some **[Golang](https://go.dev/)**, 
 * Day 9 : Mirage Maintenance - [Part 1](./day09/main.go) | [Part 2](./day09/main_part2.go)
 * Day 10 : Pipe Maze - [Part 1](./day10/main.go) | [Part 2](./day10/main_part2.go)
 * Day 11 : Cosmic Expansion - [Part 1](./day11/main.go) | [Part 2](./day11/main_part2.go)
+* Day 12 : Hot Springs - [Part 1](./day12/main.go)
 
 ## Run
 
